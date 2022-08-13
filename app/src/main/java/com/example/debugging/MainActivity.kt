@@ -6,6 +6,15 @@ import android.util.Log
 
 private const val TAG = "MainActivity"
 
+fun division() {
+    val numerator = 60
+    var denominator = 4
+    repeat(5) {
+        Log.v(TAG, "${numerator / denominator}")
+        denominator--
+    }
+}
+
 fun logging() {
     fun logging() {
         Log.e(TAG, "ERROR: a serious error like an app crash")
@@ -21,5 +30,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         logging()
+        division()
     }
 }
