@@ -7,15 +7,6 @@ import android.widget.TextView
 
 private const val TAG = "MainActivity"
 
-fun division() {
-    val numerator = 60
-    var denominator = 4
-    repeat(4) {
-        Log.d(TAG, "$denominator")
-        Log.v(TAG, "${numerator / denominator}")
-        denominator--
-    }
-}
 
 fun logging() {
     fun logging() {
@@ -28,14 +19,29 @@ fun logging() {
 }
 
 class MainActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d(TAG, "this is where the app crashed before")
-        val helloTextView: TextView = findViewById(R.id.hello_world)
+        val helloTextView: TextView = findViewById(R.id.division_textview)
         Log.d(TAG, "this should be logged if the bug is fixed")
         helloTextView.text = "Hello, debugging!"
         logging()
         division()
+    }
+
+    fun division() {
+        val numerator = 60
+        var denominator = 4
+        repeat(4) {
+            Thread.sleep(3000)
+//            Log.d(TAG, "$denominator")
+//            Log.v(TAG, "${numerator / denominator}")
+//            findViewById<TextView>(R.id.division_textview).setText("${numerator / denominator}")
+            findViewById<TextView>(R.id.division_textview).setText("${numerator / denominator}")
+            denominator--
+        }
     }
 }
